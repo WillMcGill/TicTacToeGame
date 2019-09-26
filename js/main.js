@@ -4,12 +4,13 @@ app.className = "container-fluid p-5";
 var size = 3;
 var switchState = 0;
 var player = 1;
+
 // Populate HTML
 
 var board = [];
 board.length = size * size;
 
-popArray();
+
 //popBoard();
 
 function popArray() {
@@ -25,27 +26,30 @@ function clickHandler() {
         console.log(board);
         var x = document.createTextNode('X');
         var o = document.createTextNode('O');
-        if (player == 1) { board[this.id] == 0;
+        if (player == 1) {
+        board[this.id] == 0;
             this.appendChild(x);
+            document.getElementById("turnIndicator").innerHTML = "O's Turn";
             player = 2;
             //console.log(board[this.id]);
         }
-        else
-             {
+        else {
             this.appendChild(o);
+            document.getElementById("turnIndicator").innerHTML = "X's Turn";
             player = 1;
         }
-        //popBoard();
+
     }
     else { }
 
 }
 
-function clickReset(){
+function clickReset() {
     console.log('reset');
-    for (var i = 0; i < size * size; i++){
+    for (var i = 0; i < size * size; i++) {
         console.log(i);
-        document.getElementById(i). innerHTML = "";
+        document.getElementById(i).innerHTML = "";
+        document.getElementById("turnIndicator").innerHTML = "X Goes First";
     }
 }
 
@@ -64,15 +68,15 @@ function createUI() {
     var count = 0;
     for (var i = 0; i < size; i++) {
         var newRow = document.createElement("div");
-        newRow.className = "row";
+        newRow.className = "row no-gutters";
 
 
         for (var j = 0; j < size; j++) {
             var newCol = document.createElement("div");
-            newCol.className = "col border";
+            newCol.className = "col border py-5";
             newCol.id = count;
 
-            var test = document.createTextNode(".");
+            var test = document.createTextNode(" ");
             newCol.addEventListener('click', clickHandler);
             newRow.appendChild(newCol);
 
@@ -86,12 +90,13 @@ function createUI() {
     }
     //Create Turn Indicator
     var newRow = document.createElement("div");
-    newRow.className = "row border";
-    var test = document.createTextNode("Turn indicator");
+    newRow.className = "row no-gutters";
+    newRow.id = 'turnIndicator';
+    var test = document.createTextNode("X Goes First");
     app.appendChild(newRow);
     newRow.appendChild(test);
 
-    //Create Button
+    //Reset Button
     var newRow = document.createElement("div");
     newRow.className = "row";
     var resetButt = document.createElement("button");
@@ -105,40 +110,4 @@ function createUI() {
 }
 
 createUI();
-
-// function popBoard() {
-//     var x = document.createTextNode('X');
-//     var o = document.createTextNode('O');
-//     var blank = document.createTextNode('.');
-
-//     board.map((i) => {
-//         if (board[i] == 0) {
-//             //this.appendChild(x);
-//             //document.newRow.newCol.i.createTextNode(blank);
-//         };
-//         if (board[i] == 1) {
-//             console.log(x);
-//             //board[i].innerHTML = "X";
-//         }
-//         if (board[i] == 2) {
-//             console.log(o);
-//             //board[i].innerHTML = "O";
-//         }
-//     })
-
-
-//     function render() {
-//         switch (board[switchState]) {
-
-//             case "0":
-//                 console.log('switch state');
-//             case "1":
-
-//             case "2":
-//         }
-//     }
-//     render();
-// }
-
-//var test = document.createTextNode("test");
-//app.appendChild(newCol);
+popArray();
