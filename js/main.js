@@ -24,10 +24,14 @@ for (var i = 1; i <= size; i++){
         for(var j = 1; j<= size; j++){
             var newCol = document.createElement("div");
             newCol.className = "col border";
-            
+            newCol.id = i + "-" + j;
+            //var square = document.createElement("img");
+            //square.setAttribute("src", "imgs/gray.png");
+            //square.setAttribute("object-fit", "contain");
             var test = document.createTextNode(".");
             newRow.appendChild(newCol);
             newCol.appendChild(test);
+            //newCol.appendChild(square);
         }
         app.appendChild(newRow);
 }
@@ -35,7 +39,9 @@ for (var i = 1; i <= size; i++){
 //Create Button
 var newRow = document.createElement("div");
 newRow.className = "row border";
+var test = document.createTextNode("button");
 app.appendChild(newRow);
+newRow.appendChild(test);
 
 }
 
