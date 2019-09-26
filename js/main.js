@@ -3,6 +3,7 @@ app.className = "container-fluid p-5";
 
 var size = 3;
 var switchState = 0;
+var player = 1;
 // Populate HTML
 
 var board = [];
@@ -14,12 +15,20 @@ popBoard();
 function popArray() {
 
     board.fill(0);
+    console.log(board);
 }
 
 function clickHandler(){
     console.log(this.id);
-    board[this.id] = 2;
+    board[this.id] = player;
     console.log(board);
+        if (player == 1){
+            player = 2;
+        }
+        else{
+            player = 1;
+        }
+
 }
 
 function createUI() {
