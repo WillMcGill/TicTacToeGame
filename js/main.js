@@ -10,7 +10,7 @@ var board = [];
 board.length = size * size;
 
 popArray();
-popBoard();
+//popBoard();
 
 function popArray() {
 
@@ -18,19 +18,31 @@ function popArray() {
     console.log(board);
 }
 
-function clickHandler(){
-    if (board[this.id] == 0 ){
-    console.log(this.id);
-    board[this.id] = player;
-    console.log(board);
-        if (player == 1){
+function clickHandler() {
+    if (board[this.id] == 0) {
+        console.log(this.id);
+        board[this.id] = player;
+        console.log(board);
+        var x = document.createTextNode('X');
+        var o = document.createTextNode('O');
+        if (player == 1) { board[this.id] == 0;
+            this.appendChild(x);
             player = 2;
+            console.log(board[this.id]);
         }
-        else{
+        else
+             {
+            this.appendChild(o);
             player = 1;
-        }}
-    else{}
+        }
+        //popBoard();
+    }
+    else { }
 
+}
+
+function clickReset(){
+    
 }
 
 function createUI() {
@@ -55,11 +67,11 @@ function createUI() {
             var newCol = document.createElement("div");
             newCol.className = "col border";
             newCol.id = count;
-            
+
             var test = document.createTextNode(".");
             newCol.addEventListener('click', clickHandler);
             newRow.appendChild(newCol);
-            
+
             newCol.appendChild(test);
             //newCol.addEventListener('click', console.log('click'));
             //newCol.appendChild(square);
@@ -89,37 +101,39 @@ function createUI() {
 
 createUI();
 
-function popBoard() {
-    var x = document.createTextNode('X');
-    var o = document.createTextNode('O');
-    var blank = document.createTextNode('.');
+// function popBoard() {
+//     var x = document.createTextNode('X');
+//     var o = document.createTextNode('O');
+//     var blank = document.createTextNode('.');
 
-    board.map((i) => {
-        if (board[i] == 0) {
-            console.log(blank);
-            //document.newRow.newCol.i.createTextNode(blank);
-        };
-        if (board[i] == 1) {
-            console.log(x);
-        }
-        if (board[i] == 2) {
-            console.log(o);
-        }
-    })
+//     board.map((i) => {
+//         if (board[i] == 0) {
+//             //this.appendChild(x);
+//             //document.newRow.newCol.i.createTextNode(blank);
+//         };
+//         if (board[i] == 1) {
+//             console.log(x);
+//             //board[i].innerHTML = "X";
+//         }
+//         if (board[i] == 2) {
+//             console.log(o);
+//             //board[i].innerHTML = "O";
+//         }
+//     })
 
 
-    function render() {
-        switch (board[switchState]) {
+//     function render() {
+//         switch (board[switchState]) {
 
-            case "0":
-                console.log('switch state');
-            case "1":
+//             case "0":
+//                 console.log('switch state');
+//             case "1":
 
-            case "2":
-        }
-    }
-    render();
-}
+//             case "2":
+//         }
+//     }
+//     render();
+// }
 
 //var test = document.createTextNode("test");
 //app.appendChild(newCol);
