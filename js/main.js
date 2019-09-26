@@ -31,7 +31,6 @@ function clickHandler() {
             this.appendChild(x);
             document.getElementById("turnIndicator").innerHTML = "O's Turn";
             player = 2;
-            //console.log(board[this.id]);
         }
         else {
             this.appendChild(o);
