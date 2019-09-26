@@ -28,7 +28,7 @@ function clickHandler() {
         if (player == 1) { board[this.id] == 0;
             this.appendChild(x);
             player = 2;
-            console.log(board[this.id]);
+            //console.log(board[this.id]);
         }
         else
              {
@@ -42,7 +42,11 @@ function clickHandler() {
 }
 
 function clickReset(){
-    
+    console.log('reset');
+    for (var i = 0; i < size * size; i++){
+        console.log(i);
+        document.getElementById(i). innerHTML = "";
+    }
 }
 
 function createUI() {
@@ -93,6 +97,7 @@ function createUI() {
     var resetButt = document.createElement("button");
     resetButt.className = "btn btn-info mx-auto";
     resetButt.addEventListener("click", popArray);
+    resetButt.addEventListener("click", clickReset);
     app.appendChild(newRow);
     newRow.appendChild(resetButt);
     resetButt.innerHTML = "Reset";
