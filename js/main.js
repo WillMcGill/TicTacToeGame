@@ -19,6 +19,7 @@ function popArray() {
 }
 
 function clickHandler(){
+    if (board[this.id] == 0 ){
     console.log(this.id);
     board[this.id] = player;
     console.log(board);
@@ -27,7 +28,8 @@ function clickHandler(){
         }
         else{
             player = 1;
-        }
+        }}
+    else{}
 
 }
 
