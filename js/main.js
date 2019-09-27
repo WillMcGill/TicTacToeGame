@@ -2,8 +2,11 @@ var app = document.getElementById("app");
 app.className = "container-fluid p-5";
 
 var size = 3;
-var switchState = 0;
+var turn = 0;
 var player = 1;
+var counterX = 0;
+var counterO = 0;
+var win = 0;
 
 // Populate HTML
 
@@ -16,14 +19,14 @@ board.length = size * size;
 function popArray() {
 
     board.fill(0);
-    console.log(board);
+    //console.log(board);
 }
 
 function clickHandler() {
     if (board[this.id] == 0) {
-        console.log(this.id);
+        //console.log(this.id);
         board[this.id] = player;
-        console.log(board);
+        //console.log(board);
         var x = document.createTextNode('X');
         var o = document.createTextNode('O');
         if (player == 1) {
@@ -38,6 +41,10 @@ function clickHandler() {
             player = 1;
         }
         winChecker();
+        turn++;
+        catGame();
+        console.log("turn",turn);
+        //console.log("win", win)
     }
     else { }
 
@@ -48,6 +55,7 @@ function clickReset() {
     for (var i = 0; i < size * size; i++) {
         //console.log(i);
         player = 1;
+        turn = 0;
         document.getElementById(i).innerHTML = "";
         document.getElementById("turnIndicator").innerHTML = "X Goes First";
     }
@@ -103,6 +111,7 @@ function createUI() {
     app.appendChild(newRow);
     newRow.appendChild(resetButt);
     resetButt.innerHTML = "Reset";
+    
 
 }
 
@@ -115,7 +124,7 @@ function winChecker() {
                     [3,4,5],
                     [6,7,8],
                     [0,4,8],
-                    [2,4,6]]
+                    [2,4,6]];
 
                     //console.log(winArray);
 
@@ -123,17 +132,55 @@ function winChecker() {
         //console.log(i);
         var counterX = 0;
         var counterO = 0;
+        // var win = 0;
+       // var counterO = 0;
         for (var j = 0; j < winArray[i].length; j++){
-            counterX = counterX + board[winArray[i][j]];
-            console.log(counterX);
-            if (counterX == 3){
             
+            //counterO = counterO + board[winArray[i][j]];
+            //console.log(counterX, winArray[i]);
+
+            if (board[winArray[i][j]] == 1){
+                counterX = counterX + board[winArray[i][j]];} 
+        
+            if (j == 2 && counterX == 3){
+            console.log("winner X");
+            document.getElementById("turnIndicator").innerHTML = "X Wins!!";
+            win = 1;
+            board.fill(3)}
+
+            if (board[winArray[i][j]] == 2){
+                counterO = counterO + board[winArray[i][j]];} 
+        
+            if (j == 2 && counterO == 6){
+            console.log("winner O");
+            document.getElementById("turnIndicator").innerHTML = "O Wins!!";
+            win = 1;
+            board.fill(3)}
+
+            if (win == 0 && turn == 9){
+                document.getElementById("turnIndicator").innerHTML = "Cat Game.  Please reset";
+                console.log("cat game");
             }
+                console.log("win", win)
+            
+
+
+        
         }
+
+        
+    }
+    
+    }
+
+    function catGame(){
+        if (win == 0 && turn == 9){
+        document.getElementById("turnIndicator").innerHTML = "Cat Game.  Please reset";
+        console.log("cat game");}
     }
                 
     
-} 
+
     
     //     //Col Checker
 
