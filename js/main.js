@@ -107,39 +107,59 @@ function createUI() {
 }
 
 function winChecker(){
-//     //Row Checker
+//     //Col Checker
 
    for (var j = 0; j < size; j++){
+    var colScore = 0;
     var rowScore = 0
     var zeroCount = 0;
     for (var i = j; i < board.length; i = i + size){
         
          if (board[i] == 0){
+             zeroCount++
              break;
          }
-         else {
-             rowScore = rowScore + board[i]
-              if(rowScore  == size ){
-                  console.log("x wins");
+         else if(board[i] !== 0) {
+             colScore = colScore + board[i]
+              if(colScore  == size && zeroCount == 0){
+                  console.log("x wins col");
+                  board.fill(3);
+                  console.log(board);
+                  j = size;
+                  
               }
-              else if (rowScore == size * 2){
-                  console.log("o wins");
+              else if (colScore == size * 2 && zeroCount == 0){
+                  console.log("o wins col");
+                  board.fill(3);
+                  console.log(board);
+                  j = size + 1;
+                  break;
+                  
               }
-             console.log(rowScore);
+             
          }
-            // zeroCount++;
-            // rowScore = rowScore + board[i];
-            // console.log(rowScore);
+    //      for (var i = j; i < board.length; i++){
         
-            // if (rowScore % size == 0 && zeroCount == 0){
-            //     console.log ("O wins");
-            // }
-            // else if (rowScore % (size * 2) == 0){
-            //     console.log ("X wins");
-            // }
+    //         if (board[i] == 0){
+    //             zeroCount++
+    //             break;
+    //         }
+    //         else if (board[i] !== 0) {
+    //             rowScore = rowScore + board[i]
+    //              if(colScore  == size && zeroCount == 0){
+    //                  console.log("x wins row");
+    //                  board.fill(3);
+    //                  //console.log(board);
+    //              }
+    //              else if (rowScore == size * 2 && zeroCount == 0){
+    //                  console.log("o wins row");
+    //                  board.fill(3);
+    //              }
+    //             break;
+    //         }
      
      
-    }
+    // }
 
       //Col Checker
     //   for (var i = j; i < size; i ++){
@@ -153,10 +173,9 @@ function winChecker(){
    }
 }
 //}
+
+
+
+}
 createUI();
 popArray();
-
-function zeroCheck(){
-    if (board[i] == 0);
-    break;
-}
