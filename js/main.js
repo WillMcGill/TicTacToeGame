@@ -27,7 +27,7 @@ function clickHandler() {
         var x = document.createTextNode('X');
         var o = document.createTextNode('O');
         if (player == 1) {
-        board[this.id] == 0;
+            board[this.id] == 0;
             this.appendChild(x);
             document.getElementById("turnIndicator").innerHTML = "O's Turn";
             player = 2;
@@ -106,76 +106,54 @@ function createUI() {
 
 }
 
-function winChecker(){
-//     //Col Checker
+function winChecker() {
+    //     //Col Checker
 
-   for (var j = 0; j < size; j++){
-    var colScore = 0;
-    var rowScore = 0
-    var zeroCount = 0;
-    for (var i = j; i < board.length; i = i + size){
-        
-         if (board[i] == 0){
-             zeroCount++
-             break;
-         }
-         else if(board[i] !== 0) {
-             colScore = colScore + board[i]
-              if(colScore  == size && zeroCount == 0){
-                  console.log("x wins col");
-                  board.fill(3);
-                  console.log(board);
-                  j = size;
-                  
-              }
-              else if (colScore == size * 2 && zeroCount == 0){
-                  console.log("o wins col");
-                  board.fill(3);
-                  console.log(board);
-                  j = size + 1;
-                  break;
-                  
-              }
-             
-         }
-    //      for (var i = j; i < board.length; i++){
-        
-    //         if (board[i] == 0){
-    //             zeroCount++
-    //             break;
-    //         }
-    //         else if (board[i] !== 0) {
-    //             rowScore = rowScore + board[i]
-    //              if(colScore  == size && zeroCount == 0){
-    //                  console.log("x wins row");
-    //                  board.fill(3);
-    //                  //console.log(board);
-    //              }
-    //              else if (rowScore == size * 2 && zeroCount == 0){
-    //                  console.log("o wins row");
-    //                  board.fill(3);
-    //              }
-    //             break;
-    //         }
-     
-     
-    // }
+    for (var j = 0; j < size; j++) {
+        var colScore = 0;
+        var zeroCount = 0;
+        for (var i = j; i < board.length; i = i + size) {
 
-      //Col Checker
-    //   for (var i = j; i < size; i ++){
-        
-    //     if (board[i] !== 0){
-    //        console.log("Row checked");
-    //       console.log(i);
-    //  }
-    //  else {};
-    // }
-   }
-}
-//}
+            if (board[i] == 0) {
+                zeroCount++
+                break;
+            }
+            else if (board[i] !== 0) {
+                colScore = colScore + board[i]
+                if (colScore == size && zeroCount == 0) {
+                    console.log("x wins col");
+                    board.fill(3);
+                    console.log(board);
+                    j = size;
 
+                }
+                else if (colScore == size * 2 && zeroCount == 0) {
+                    console.log("o wins col");
+                    board.fill(3);
+                    console.log(board);
+                    j = size + 1;
+                    break;
 
+                }
+
+            }
+
+        }
+    }
+    for(var n = 0; n < board.length; n = n + size){
+        rowScore = 0;
+       // console.log(n);
+        for ( var q = n; q < n + size; q++){
+            console.log (q);
+            
+        }
+        console.log('break');
+
+    }
 
 }
+
+
+
 createUI();
 popArray();
