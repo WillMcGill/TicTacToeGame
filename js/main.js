@@ -107,51 +107,100 @@ function createUI() {
 }
 
 function winChecker() {
+    
+    var winArray = [[0,3,6],
+                    [1,4,7],
+                    [2,5,8],
+                    [0,1,2],
+                    [3,4,5],
+                    [6,7,8],
+                    [0,4,8],
+                    [2,4,6]]
+
+                    //console.log(winArray);
+
+    for (var i = 0; i < winArray.length; i++){
+        //console.log(i);
+        var counterX = 0;
+        var counterO = 0;
+        for (var j = 0; j < winArray[i].length; j++){
+            counterX = counterX + board[winArray[i][j]];
+            console.log(counterX);
+            if (counterX == 3){
+            
+            }
+        }
+    }
+                
+    
+} 
+    
     //     //Col Checker
 
-    for (var j = 0; j < size; j++) {
-        var colScore = 0;
-        var zeroCount = 0;
-        for (var i = j; i < board.length; i = i + size) {
+    // for (var j = 0; j < size; j++) {
+    //     var colScore = 0;
+    //     var zeroCount = 0;
+    //     for (var i = j; i < board.length; i = i + size) {
 
-            if (board[i] == 0) {
-                zeroCount++
-                break;
-            }
-            else if (board[i] !== 0) {
-                colScore = colScore + board[i]
-                if (colScore == size && zeroCount == 0) {
-                    console.log("x wins col");
-                    board.fill(3);
-                    console.log(board);
-                    j = size;
+    //         if (board[i] == 0) {
+    //             zeroCount++
+    //             break;
+    //         }
+    //         else if (board[i] !== 0) {
+    //             colScore = colScore + board[i]
+    //             if (colScore == size && zeroCount == 0) {
+    //                 console.log("x wins col");
+    //                 board.fill(3);
+    //                 //console.log(board);
+    //                 j = size;
+                    
+    //             }
+    //             else if (colScore == size * 2 && zeroCount == 0) {
+    //                 console.log("o wins col");
+    //                 board.fill(3);
+    //                 //console.log(board);
+    //                 j = size + 1;
+    //                 break;
+    //             }
+    //         }
+    //     }
+    // }
+    // for(var n = 0; n < board.length; n = n + size){
+    //     var rowScore = 0;
+    //     var zeroCountRow = 0;
+    //    // console.log(n);
+    //     for ( var q = n; q <= (n + (size - 1)); q++){
+    //         console.log (q);
+    //         if (board[q] == 0) {
+    //             zeroCountRow++;
+    //             break;
+    //         }
+    //         else if (board[q] !== 0) {
+    //             colScore = colScore + board[n]
+    //             if (rowScore == size && zeroCountRow == 0) {
+    //                 console.log("x wins row");
+    //                 board.fill(3);
+    //                 console.log('col score 1');
+    //                 n = size;
+    //                 break;
 
-                }
-                else if (colScore == size * 2 && zeroCount == 0) {
-                    console.log("o wins col");
-                    board.fill(3);
-                    console.log(board);
-                    j = size + 1;
-                    break;
+    //             }
+    //             else if (rowScore == size * 2 && zeroCountRow == 0) {
+    //                 console.log("o wins row");
+    //                 board.fill(3);
+    //                 console.log('col score 2');
+    //                 n = size + 1;
+    //                 break;
 
-                }
+    //             }
 
-            }
+    //         }
+    //     }
+    //     console.log('break');
 
-        }
-    }
-    for(var n = 0; n < board.length; n = n + size){
-        rowScore = 0;
-       // console.log(n);
-        for ( var q = n; q < n + size; q++){
-            console.log (q);
-            
-        }
-        console.log('break');
+    // }
 
-    }
 
-}
 
 
 
