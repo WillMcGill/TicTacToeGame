@@ -56,6 +56,7 @@ function clickReset() {
         //console.log(i);
         player = 1;
         turn = 0;
+        win = 0;
         document.getElementById(i).innerHTML = "";
         document.getElementById("turnIndicator").innerHTML = "X Goes First";
     }
