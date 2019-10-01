@@ -27,16 +27,23 @@ function clickHandler() {
         //console.log(this.id);
         board[this.id] = player;
         //console.log(board);
-        var x = document.createTextNode('X');
-        var o = document.createTextNode('O');
+        var x = document.createElement("div");
+        x.className = "mx-auto text-center";
+        var xText = document.createTextNode('X');
+        // x.className("mx-auto");        
+        var o = document.createElement("div");
+        o.className = "mx-auto text-center";
+        var oText = document.createTextNode('O');
         if (player == 1) {
             board[this.id] == 0;
             this.appendChild(x);
+            x.appendChild(xText);
             document.getElementById("turnIndicator").innerHTML = "O's Turn";
             player = 2;
         }
         else {
             this.appendChild(o);
+            o.appendChild(oText);
             document.getElementById("turnIndicator").innerHTML = "X's Turn";
             player = 1;
         }
